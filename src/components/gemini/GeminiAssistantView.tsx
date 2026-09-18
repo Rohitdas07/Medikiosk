@@ -766,7 +766,9 @@ Provide guidance on Dravyaguna (herbology), Dosha Prakriti assessment (Vata, Pit
 
         <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono-data">
           <span>ABDM & HIPAA Scoped • AI Clinical Decision Support Only</span>
-          <span>Lat: {gpsLocation.lat.toFixed(4)}, Lng: {gpsLocation.lng.toFixed(4)}</span>
+          <span>
+  Lat: {gpsLocation?.lat?.toFixed(4) ?? '—'}, Lng: {gpsLocation?.lng?.toFixed(4) ?? '—'}
+</span>
         </div>
       </div>
 
