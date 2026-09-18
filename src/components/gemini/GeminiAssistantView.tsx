@@ -203,7 +203,7 @@ Provide guidance on Dravyaguna (herbology), Dosha Prakriti assessment (Vata, Pit
     setIsLoading(true);
 
     try {
-      if (enableMapsGrounding) {
+      if (enableMapsGrounding && gpsLocation) {
         // Use Maps Grounding endpoint (gemini-3.5-flash with googleMaps tool)
         const res = await fetch('/api/gemini/maps-grounded', {
           method: 'POST',
