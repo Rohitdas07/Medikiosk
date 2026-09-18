@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: medikiosk
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: APP_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: HIS_ADMIN_ID
+        sync: false
+      - key: HIS_ADMIN_PIN
+        sync: false
+      - key: ENABLE_DEMO_STAFF
+        value: false
+      - key: VITE_OSM_TILE_URL
+        value: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+      - key: VITE_OSM_ROUTING_PRIMARY_URL
+        value: https://router.project-osrm.org
+      - key: VITE_OSM_ROUTING_MIRROR_URL
+        value: https://routing.openstreetmap.de
+      - key: OSM_NOMINATIM_URL
+        value: https://nominatim.openstreetmap.org
+      - key: OSM_ROUTING_PRIMARY_URL
+        value: https://router.project-osrm.org
+      - key: OSM_ROUTING_MIRROR_URL
+        value: https://routing.openstreetmap.de
+      - key: OSM_USER_AGENT
+        sync: false

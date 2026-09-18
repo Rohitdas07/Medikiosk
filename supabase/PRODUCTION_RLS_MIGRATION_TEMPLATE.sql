@@ -1,0 +1,32 @@
+-- MediKiosk AI production RLS migration template
+-- IMPORTANT: Do NOT run this file blindly against the current app.
+-- The current browser application uses custom session tokens rather than
+-- Supabase Auth JWTs. First migrate authentication/data access to one of:
+--   A) Supabase Auth + JWT/RLS, or
+--   B) Express-only database access using a server-only service-role/secret key.
+--
+-- The existing development schema contains permissive policies such as
+-- USING (true) WITH CHECK (true). Those are NOT acceptable for real patient data.
+--
+-- After the auth model is finalized, enable RLS and replace every broad policy
+-- with least-privilege policies for patients, doctors, nurses and admins.
+
+-- Baseline hardening (safe to review before applying):
+-- alter table public.patients enable row level security;
+-- alter table public.appointments enable row level security;
+-- alter table public.prescriptions enable row level security;
+-- alter table public.patient_medical_history enable row level security;
+-- alter table public.medical_history_documents enable row level security;
+-- alter table public.patient_one_year_summaries enable row level security;
+-- alter table public.triage_assessments enable row level security;
+-- alter table public.audit_logs enable row level security;
+-- alter table public.hospital_staff enable row level security;
+-- alter table public.hospital_system_config enable row level security;
+--
+-- Example shape after Supabase Auth migration:
+-- create policy "patient can read own profile"
+-- on public.patients for select to authenticated
+-- using (auth.uid()::text = auth_user_id);
+--
+-- Use explicit role claims / staff mapping for doctor/nurse/admin access.
+-- Never use USING (true) or WITH CHECK (true) for clinical tables.
