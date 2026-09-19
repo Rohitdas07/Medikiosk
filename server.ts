@@ -18,6 +18,38 @@ import { extractPrescriptionRules, normalizeMedicineName, isKnownMedicineName, s
 dotenv.config();
 
 const app = express();
+
+const allowedOrigins = new Set([
+  'https://medikiosk-sh8j.onrender.com',
+  'https://localhost',
+  'http://localhost',
+]);
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin && allowedOrigins.has(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET,POST,PUT,PATCH,DELETE,OPTIONS'
+  );
+
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization'
+  );
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 const PORT = Number(process.env.PORT) || 3000;
 const OSM_NOMINATIM_URL = (process.env.OSM_NOMINATIM_URL || 'https://nominatim.openstreetmap.org').replace(/\/$/, '');
 const OSM_ROUTING_PRIMARY_URL = (process.env.OSM_ROUTING_PRIMARY_URL || 'https://router.project-osrm.org').replace(/\/$/, '');
