@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { Appointment, PrescriptionRecord, PatientProfile, PatientOneYearSummary, MedicalConditionRecord, MedicalHistoryDocument, HospitalStaffMember, HospitalSystemConfig } from '../types';
 
-export const SUPABASE_PROJECT_ID = 'aylqpvgaamipwufejnan';
+export const SUPABASE_PROJECT_ID = 'apkgikaqykbmkeisvkdh';
 export const SUPABASE_URL = (import.meta as any).env?.VITE_SUPABASE_URL || `https://${SUPABASE_PROJECT_ID}.supabase.co`;
 export const SUPABASE_ANON_KEY = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
 
@@ -67,11 +67,11 @@ export interface TriageRecordPayload {
 /**
  * MASTER POSTGRESQL SCHEMA FOR SUPABASE
  * Copy & paste this entire script into your Supabase SQL Editor:
- * https://supabase.com/dashboard/project/aylqpvgaamipwufejnan/sql/new
+ * https://supabase.com/dashboard/project/apkgikaqykbmkeisvkdh/sql/new
  */
 export const SUPABASE_SQL_SCHEMA = `-- ==============================================================================
 -- MEDIKIOSK AI - COMPLETE SUPABASE POSTGRESQL SCHEMA & RLS POLICIES
--- Project: https://aylqpvgaamipwufejnan.supabase.co
+-- Project: https://apkgikaqykbmkeisvkdh.supabase.co
 -- Generated for AI-Powered Clinical History & Pre-Consultation Platform
 -- ==============================================================================
 
@@ -768,11 +768,11 @@ create index if not exists idx_patients_phone on patients(phone);
 /**
  * INCREMENTAL SQL SCRIPT TO UPDATE BACKEND WITH DOCTORS & STAFF
  * Paste this directly into Supabase SQL Editor:
- * https://supabase.com/dashboard/project/aylqpvgaamipwufejnan/sql/new
+ * https://supabase.com/dashboard/project/apkgikaqykbmkeisvkdh/sql/new
  */
 export const SUPABASE_DOCTORS_STAFF_SQL = `-- ==============================================================================
 -- MEDIKIOSK AI: DOCTORS & CLINICAL STAFF BACKEND SCHEMA (INCREMENTAL UPDATE)
--- Run this in Supabase SQL Editor: https://supabase.com/dashboard/project/aylqpvgaamipwufejnan/sql/new
+-- Run this in Supabase SQL Editor: https://supabase.com/dashboard/project/apkgikaqykbmkeisvkdh/sql/new
 -- ==============================================================================
 
 -- 1. Create or update hospital_staff table

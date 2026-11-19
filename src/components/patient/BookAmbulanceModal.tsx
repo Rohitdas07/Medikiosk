@@ -1550,7 +1550,7 @@ export const BookAmbulanceModal: React.FC<BookAmbulanceModalProps> = ({
                   <span>{syncStatus}</span>
                 </div>
                 <span className="font-mono text-[10px] text-teal-700 bg-white px-2 py-0.5 rounded border border-teal-200">
-                  Supabase Project: aylqpvgaamipwufejnan
+                  Supabase Project: apkgikaqykbmkeisvkdh
                 </span>
               </div>
 

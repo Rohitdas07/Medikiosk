@@ -56,7 +56,7 @@ const OSM_ROUTING_PRIMARY_URL = (process.env.OSM_ROUTING_PRIMARY_URL || 'https:/
 const OSM_ROUTING_MIRROR_URL = (process.env.OSM_ROUTING_MIRROR_URL || 'https://routing.openstreetmap.de').replace(/\/$/, '');
 
 // Supabase Pro Backend Configuration
-const SUPABASE_PROJECT_ID = 'aylqpvgaamipwufejnan';
+const SUPABASE_PROJECT_ID = 'apkgikaqykbmkeisvkdh';
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || `https://${SUPABASE_PROJECT_ID}.supabase.co`;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || '';
